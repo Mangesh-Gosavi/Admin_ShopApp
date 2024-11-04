@@ -1,0 +1,32 @@
+.product{
+    display: flexbox;
+    color:  #1f285e;
+    font-size: 20px;
+}
+
+.data{
+    display: flex;
+    font-size: 20px;
+    margin-right: 6px;
+    width: 300px;
+    height: 10px;
+    padding: 5px;
+}
+.input{
+    width: 300px;
+    height: 20px;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 7px;
+}
+
+.submit{
+    height: 40px;
+    width:100px;
+    padding-left: 4px;
+    border-radius: 8px;
+    color: white;
+    font-size: 13px;
+    border: 1px solid gray;
+    background-color: #1541d1;
+}
