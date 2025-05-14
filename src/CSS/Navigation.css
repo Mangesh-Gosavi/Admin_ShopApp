@@ -1,0 +1,76 @@
+/* Base style for navigation */
+.navigation {
+  width: 30%;
+  background-color: white;
+  color: #333;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-right: 1px solid #ccc;
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  padding-top: 60px; 
+  overflow-y: auto; 
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link {
+  text-decoration: none;
+  color: #333;
+  font-size: 40px; 
+  display: block;
+  padding: 15px 10px;
+  transition: background-color 0.2s ease;
+}
+
+.link:hover {
+  background-color: #ddd;
+  font-weight: 500;
+}
+
+
+.link li {
+  padding: 5px;
+  transition: background-color 0.2s ease;
+  font-size: 16px;
+}
+
+
+/* Toggle button (hamburger) */
+.nav-toggle-btn {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 5px;
+  z-index: 1100;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+  .navigation {
+    height: 100lvh;
+    width: 75%;
+    transform: translateX(-100%);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .navigation.active {
+    transform: translateX(0);
+  }
+
+  .nav-toggle-btn {
+    display: block;
+  }
+}

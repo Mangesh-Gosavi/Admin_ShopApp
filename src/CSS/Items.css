@@ -1,0 +1,111 @@
+/* Base styling for the user container */
+.item-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden; 
+  max-height: 80vh;
+  align-items: center;
+  text-align: center;
+}
+
+.item-page h3 {
+  font-size: 24px;
+  color: #0066cc;
+}
+
+/* Style for the container holding all user cards */
+.item-cards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Styling for each individual user card */
+.item-card {
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Styling for the content inside the card */
+.item-card-content {
+  text-align: left;
+}
+
+.item-card h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.item-card p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+/* Hover effect for the card */
+.item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Button styling */
+.button {
+  align-self: center;
+  padding: 10px 16px;
+  background-color: #1541d1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.button:hover {
+  background-color: #0f358b;
+}
+
+/* Responsive layout - Display cards horizontally above 768px */
+@media (min-width: 768px) {
+  .item-cards {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}
+
+/* Responsive layout - Stack cards vertically below 768px */
+@media (max-width: 768px) {
+  .item-cards {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%; 
+  }
+
+  .item-card-content h4 {
+    font-size: 1rem;
+  }
+
+  .button {
+    width: 80%;
+    text-align: center;
+  }
+}
+
+/* Responsive layout for even smaller screens */
+@media (max-width: 500px) {
+  .item-card {
+    width: 90%;
+  }
+  .item-card-content h3{
+    font-size: 0.5rem;
+  }
+}

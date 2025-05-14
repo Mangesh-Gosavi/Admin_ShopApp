@@ -1,0 +1,101 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.product h3 {
+  font-size: 24px;
+  color: #0066cc;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form {
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.submit {
+  padding: 10px 16px;
+  background-color: #1541d1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.submit:hover {
+  background-color: #0f358b;
+}
+
+/* Responsive text and layout below 500px */
+@media (max-width: 500px) {
+  .product h3 {
+    font-size: 20px;
+  }
+
+  .product{
+    justify-content: none;
+  }
+
+  .input {
+    font-size: 13px;
+  }
+
+  .submit {
+    font-size: 13px;
+  }
+}
+
+/* Extra support for ultra-small screens (<350px) */
+@media (max-width: 350px) {
+  .product {
+    padding: 10px;
+  }
+
+  .form {
+    padding: 15px;
+  }
+
+  .data {
+    font-size: 13px;
+  }
+
+  .input {
+    font-size: 12px;
+  }
+
+  .submit {
+    font-size: 12px;
+  }
+}

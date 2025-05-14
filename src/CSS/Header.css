@@ -1,0 +1,35 @@
+.headerbg {
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* NAV styles */
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  font-size: 14px;
+  background-color: white;
+  color: #1f285e;
+  font-family: 'Times New Roman', Times, serif;
+  position: sticky; /* Use sticky instead of fixed for smoother layout */
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav h1 {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+  }
+}

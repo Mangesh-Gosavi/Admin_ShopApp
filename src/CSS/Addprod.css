@@ -1,0 +1,94 @@
+/* Base styling for product container */
+.productcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+/* Styling for product form */
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #fff;
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    /* box-sizing: border-box; */
+}
+
+/* Form header */
+.product h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #0066cc;
+}
+
+/* Styling for form fields */
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid rgb(206, 206, 206);
+    border-radius: 10px;
+    padding: 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-align {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.form-align label,
+.title {
+    width: 30%;
+    font-size: 1rem;
+    color: #333;
+    margin: 0; /* Remove any default spacing */
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    margin: 0; /* Ensure no vertical space is added */
+}
+
+.input:focus {
+    border-color: #0066cc;
+    outline: none;
+}
+
+
+/* Submit button styling */
+.submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: #218838;
+}
+

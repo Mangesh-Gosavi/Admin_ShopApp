@@ -1,0 +1,87 @@
+/* Base styling for the user container */
+.user {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-y: auto;
+  max-height: 80vh;
+  align-items: center;
+  text-align: center;
+}
+
+.user h3 {
+  font-size: 24px;
+  color:#0066cc;
+  margin-bottom: 20px;
+}
+
+/* Style for the container holding all user cards */
+.user-cards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Styling for each individual user card */
+.user-card {
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Styling for the content inside the card */
+.user-card-content {
+  text-align: left;
+}
+
+.user-card h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.user-card p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+/* Hover effect for the card */
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive layout - Display cards horizontally above 768px */
+@media (min-width: 768px) {
+  .user-cards {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}
+
+/* Responsive layout - Stack cards vertically below 768px */
+@media (max-width: 768px) {
+  .user-cards {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+  }
+
+  .user-card-content h4 {
+    font-size: 1rem;
+  }
+
+}
+
+@media (max-width: 500px) {
+  .user-card {
+    width: max-content;
+  }
+}

@@ -1,0 +1,127 @@
+/* Base styling for the user container */
+.review-page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-y: auto;
+    max-height: 80vh;
+    align-items: center;
+    text-align: center;
+}
+
+.review-page h3 {
+    font-size: 24px;
+    color: #0066cc;
+}
+
+/* Style for the container holding all user cards */
+.review-cards {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Styling for each individual user card */
+.review-card {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Styling for the content inside the card */
+.review-card-content {
+    text-align: left;
+}
+
+.review-card h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.review-card p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* Hover effect for the card */
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.button {
+    align-self: center;
+    padding: 10px 16px;
+    background-color: #1541d1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.button:hover {
+    background-color: #0f358b;
+}
+
+.icon-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+/* Responsive layout - Display cards horizontally above 768px */
+@media (min-width: 768px) {
+    .review-cards {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+}
+
+/* Responsive layout - Stack cards vertically below 768px */
+@media (max-width: 768px) {
+    .review-cards {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+    }
+
+    .review-card-content h4 {
+        font-size: 1rem;
+    }
+
+    .button {
+        width: 80%;
+        text-align: center;
+    }
+
+    .icon {
+        width: 22px;
+        height: 22px;
+    }
+}
+
+@media (max-width: 500px) {
+    .review-card {
+        flex-direction: column;
+        width: 90%; 
+        padding: 16px;
+        box-sizing: border-box;
+    }
+}

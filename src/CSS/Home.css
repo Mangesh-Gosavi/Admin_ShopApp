@@ -1,0 +1,35 @@
+/* Container for the Home page */
+.home-container {
+  display: flex; 
+  width: 100%;
+   overflow: hidden;
+}
+
+/* Left section for Navigation */
+.left {
+  width: 30%; 
+  padding: 20px; 
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  height: auto; 
+  padding: 20px;
+  flex-grow: 1; 
+}
+
+
+/* Responsive for screens less than 768px */
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column; 
+  }
+
+  .left, .right {
+    width: 100%; 
+    padding: 10px;
+  }
+}
