@@ -12,33 +12,32 @@ function Product() {
     const [loading, setLoading] = useState(true);
     const [popupMessage, setPopupMessage] = useState('');
 
-    useEffect(() => {
-        const init = async () => {
-            try {
-                const token = localStorage.getItem('token');
-                console.log("Token retrieved:", token);
-                const response = await fetch(`${API_BASE_URL}/allproducts`, {
-                    method: "GET",
-                    headers:
-                    {
-                        "Accept": "application/json",
-                        "Authorization": `Bearer ${token}`
-                    }
-                });
 
-                const data = await response.json();
-                console.log(data);
-                setProductdata(data);
-            } catch (error) {
-                console.error(error);
-            }
+    const init = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            console.log("Token retrieved:", token);
+            const response = await fetch(`${API_BASE_URL}/allproducts`, {
+                method: "GET",
+                headers:
+                {
+                    "Accept": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+
+            const data = await response.json();
+            console.log(data);
+            setProductdata(data);
+        } catch (error) {
+            console.error(error);
         }
-        init();
+    }
+    init();
 
-        setTimeout(() => {
-            setLoading(false);
-        }, 2000);
-    }, []);
+    setTimeout(() => {
+        setLoading(false);
+    }, 2000);
 
     const deleteproduct = async (id) => {
         const data = { "id": id };
@@ -61,9 +60,9 @@ function Product() {
                 setPopupMessage(error.message);
                 return;
             }
+            await init();
             setShowPopup(true);
             setPopupMessage("Product deleted from Database");
-
             setProductdata(productdata);
         } catch (error) {
             console.error("Error:", error);
