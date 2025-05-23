@@ -59,8 +59,9 @@ function Orders() {
                 await init(); // reload data
             } else {
                 const errorData = await response.json();
+                setShowPopup(true);
+                setPopupMessage("Error updating order");
                 console.error("Error updating order:", errorData.message);
-                alert("Error: " + errorData.message);
             }
         } catch (error) {
             console.log("Fetch error:", error);
