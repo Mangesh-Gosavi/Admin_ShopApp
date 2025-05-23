@@ -1,50 +1,45 @@
-import { useEffect } from 'react'
-import './CSS/Order.css'
+import { useEffect, useState } from 'react';
+import './CSS/Order.css';
 import Loader from '../src/Loader';
-import { useState } from 'react';
 import API_BASE_URL from './config';
 
 function Orders() {
-    const [userdata, setUserdata] = useState([])
-    const [id, setId] = useState('')
+    const [userdata, setUserdata] = useState([]);
+    const [id, setId] = useState('');
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const init = async () => {
-            try {
-                const token = localStorage.getItem('token');
-                console.log("Token retrieved:", token);
-                const response = await fetch(`${API_BASE_URL}/orders`, {
-                    method: "GET",
-                    headers:
-                    {
-                        "Accept": "application/json",
-                        "Authorization": `Bearer ${token}`
-                    }
-                });
-
-                const data = await response.json();
-                console.log(data);
-                setUserdata(data);
-            } catch (error) {
-                console.error(error);
-            }
+    const init = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            console.log("Token retrieved:", token);
+            const response = await fetch(`${API_BASE_URL}/orders`, {
+                method: "GET",
+                headers: {
+                    "Accept": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            const data = await response.json();
+            console.log(data);
+            setUserdata(data);
+        } catch (error) {
+            console.error(error);
         }
-        init();
+    };
 
-        setTimeout(() => {
-            setLoading(false);
-        }, 2000);
-
+    useEffect(() => {
+        const fetchData = async () => {
+            await init();
+            setTimeout(() => setLoading(false), 2000);
+        };
+        fetchData();
     }, []);
 
     const update = async (e) => {
         e.preventDefault();
-
-        const data = { "id": id, "status": "Delivered" };
+        const data = { id: id, status: "Delivered" };
         try {
             const token = localStorage.getItem('token');
-            console.log("Token retrieved:", token);
             const response = await fetch(`${API_BASE_URL}/orderstatus`, {
                 method: "POST",
                 headers: {
@@ -55,15 +50,16 @@ function Orders() {
             });
 
             if (response.ok) {
-                location.reload();
+                await init(); // reload data
             } else {
                 const errorData = await response.json();
-                console.error(errorData.message);
+                console.error("Error updating order:", errorData.message);
+                alert("Error: " + errorData.message);
             }
         } catch (error) {
-            console.log(error);
+            console.log("Fetch error:", error);
         }
-    }
+    };
 
     return (
         <>
@@ -102,8 +98,7 @@ function Orders() {
                 </div>
             )}
         </>
-
-    )
+    );
 }
 
-export default Orders
+export default Orders;
