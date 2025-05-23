@@ -67,6 +67,7 @@ function Signup() {
 
       const result = await response.json();
       if (response.ok) {
+        localStorage.setItem('token', result.token);
         setShowPopup(true);
         setPopupMessage(result.message);
         navigate("/Home/dashboard");
