@@ -67,6 +67,10 @@ function Orders() {
         }
     };
 
+  const closePopup = () => {
+    setShowPopup(false);
+    setPopupMessage('');
+  };
     return (
         <>
             {loading ? (
@@ -101,6 +105,7 @@ function Orders() {
                             </div>
                         ))}
                     </div>
+                    {showPopup && <Popup message={popupMessage} onClose={closePopup} />}
                 </div>
             )}
         </>
