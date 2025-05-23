@@ -57,7 +57,6 @@ function Addprod() {
 
       setShowPopup(true);
       setPopupMessage("Product Added to Database")
-      location.reload()
 
     } catch (error) {
       console.error("Error:", error);
