@@ -89,7 +89,7 @@ function Login() {
             <h1 className='title'>Admin Login</h1><br />
 
             <div className='content'>
-              <span className='icon'><CircleUser /></span>
+              <span className='login-icon'><CircleUser /></span>
               <input
                 id='name'
                 className="uinput"
@@ -101,7 +101,7 @@ function Login() {
             </div>
 
             <div className='content password-content'>
-              <span className='icon'><KeyRound /></span>
+              <span className='login-icon'><KeyRound /></span>
               <input
                 id='password'
                 className="uinput"
