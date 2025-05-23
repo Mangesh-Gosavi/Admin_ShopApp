@@ -2,11 +2,15 @@ import { useEffect, useState } from 'react';
 import './CSS/Order.css';
 import Loader from '../src/Loader';
 import API_BASE_URL from './config';
+import Popup from './Popup'; 
+
 
 function Orders() {
     const [userdata, setUserdata] = useState([]);
     const [id, setId] = useState('');
     const [loading, setLoading] = useState(true);
+    const [showPopup, setShowPopup] = useState(false);
+    const [popupMessage, setPopupMessage] = useState('');
 
     const init = async () => {
         try {
@@ -50,6 +54,8 @@ function Orders() {
             });
 
             if (response.ok) {
+                setShowPopup(true);
+                setPopupMessage("Marked as Delivered");
                 await init(); // reload data
             } else {
                 const errorData = await response.json();
