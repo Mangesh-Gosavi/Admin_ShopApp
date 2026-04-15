@@ -1,17 +1,13 @@
-import "./CSS/Header.css"
-import Navigation from "./Navigation"
+import "./CSS/Header.css";
 
-function Header(){
-
-    return (
+function Header() {
+  return (
     <div className="headerbg">
-        <div className="nav">
-            <Navigation />
-            <h1>Pooja Collection</h1>
-        </div>
-    </div>    
-    
-     )
+      <div className="nav">
+        <h1>Pooja Collection</h1>
+      </div>
+    </div>
+  );
 }
 
-export default Header
+export default Header;

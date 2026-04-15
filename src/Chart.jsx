@@ -9,6 +9,7 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#b18ce0', '#5a95ff'
 const Dashboard = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const hasChartData = Array.isArray(data) && data.length > 0;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,25 +42,29 @@ const Dashboard = () => {
         <div className="chart-container">
           <h2 className="chart-title">Sales Profit of Product</h2>
           <div className="chart-wrapper">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie
-                  data={data}
-                  dataKey="value"
-                  nameKey="name"
-                  cx="50%"
-                  cy="50%"
-                  outerRadius="80%"
-                  label
-                >
-                  {data.map((_, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip />
-                <Legend />
-              </PieChart>
-            </ResponsiveContainer>
+            {hasChartData ? (
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={data}
+                    dataKey="value"
+                    nameKey="name"
+                    cx="50%"
+                    cy="50%"
+                    outerRadius="80%"
+                    label
+                  >
+                    {data.map((_, index) => (
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                  <Legend />
+                </PieChart>
+              </ResponsiveContainer>
+            ) : (
+              <p>No data available for chart report</p>
+            )}
           </div>
         </div>
       )}

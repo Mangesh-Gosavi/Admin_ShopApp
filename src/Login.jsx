@@ -84,7 +84,7 @@ function Login() {
         <Loader />
       ) : (
         <div className='center-body'>
-          <form className='form' onSubmit={(e) => handleSubmit(e)}>
+          <form className='login-form' onSubmit={(e) => handleSubmit(e)}>
             <h1 className='title'>Pooja Collection</h1>
             <h1 className='title'>Admin Login</h1><br />
 
@@ -119,8 +119,8 @@ function Login() {
             </div>
 
             <button className='loginbtn' type="submit">Submit</button>
-            <h4><Link className='link' to='/forgotpassword'>Forgot Password</Link></h4>
-            <h5>Don't have an account? <Link className='link' to="/Signup">Signup</Link></h5>
+            <h4><Link className='auth-link' to='/forgotpassword'>Forgot Password</Link></h4>
+            <h5>Don't have an account? <Link className='auth-link' to="/Signup">Signup</Link></h5>
             {showPopup && <Popup message={popupMessage} onClose={closePopup} />}
           </form>
         </div>

@@ -56,15 +56,17 @@ function Updatestock() {
       {loading ? (
         <Loader />
       ) : (
-        <div className='product'>
-          <h3>Add Product Stock</h3>
-          <form className='form' onSubmit={handleSubmit}>
-            <label className='data'>ID:<input className='input' onChange={(e) => setId(e.target.value)} type='text' placeholder='Enter product ID' required /></label><br />
-            <label className='data'>Size:<input className='input' onChange={(e) => setsize(e.target.value)} type='text' placeholder='ex small medium large xl or 28-42' required /></label><br />
-            <label className='data'>Stocks:<input className='input' onChange={(e) => setstock(e.target.value)} type='number' required /></label><br />
-            <button className='submit' type='submit'>Update</button>
-            <div>{showPopup && <Popup message={popupMessage} onClose={() => setShowPopup(false)} />}</div>
-          </form>
+        <div className='stock-container'>
+          <div className='stock-product'>
+            <h3>Add Product Stock</h3>
+            <form className='stock-form' onSubmit={handleSubmit}>
+              <label className='stock-data'>ID:<input className='stock-input' onChange={(e) => setId(e.target.value)} type='text' placeholder='Enter product ID' required /></label><br />
+              <label className='stock-data'>Size:<input className='stock-input' onChange={(e) => setsize(e.target.value)} type='text' placeholder='ex small medium large xl or 28-42' required /></label><br />
+              <label className='stock-data'>Stocks:<input className='stock-input' onChange={(e) => setstock(e.target.value)} type='number' required /></label><br />
+              <button className='stock-submit' type='submit'>Update</button>
+              <div>{showPopup && <Popup message={popupMessage} onClose={() => setShowPopup(false)} />}</div>
+            </form>
+          </div>
         </div>
       )}
     </>

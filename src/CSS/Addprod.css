@@ -5,17 +5,17 @@
     align-items: center;
     padding: 20px;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100%;
     overflow-y: auto;
     box-sizing: border-box;
 }
 
 /* Styling for product form */
-.product {
+.productcontainer .product {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: min(100%, 900px);
     background-color: #fff;
     font-size: 20px;
     padding: 20px;
@@ -25,7 +25,7 @@
 }
 
 /* Form header */
-.product h3 {
+.productcontainer .product h3 {
     text-align: center;
     font-size: 1.8rem;
     margin-bottom: 20px;
@@ -33,7 +33,7 @@
 }
 
 /* Styling for form fields */
-.form {
+.productcontainer .form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -44,7 +44,7 @@
     box-sizing: border-box;
 }
 
-.form-align {
+.productcontainer .form-align {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -53,16 +53,16 @@
     box-sizing: border-box;
 }
 
-.form-align label,
-.title {
+.productcontainer .form-align label,
+.productcontainer .title {
     width: 30%;
     font-size: 1rem;
     color: #333;
     margin: 0; /* Remove any default spacing */
 }
 
-.input {
-    width: 100%;
+.productcontainer .input {
+    width: 95%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ddd;
@@ -70,14 +70,14 @@
     margin: 0; /* Ensure no vertical space is added */
 }
 
-.input:focus {
+.productcontainer .input:focus {
     border-color: #0066cc;
     outline: none;
 }
 
 
 /* Submit button styling */
-.submit {
+.productcontainer .submit {
     width: 100%;
     padding: 12px;
     background-color: #28a745;
@@ -88,7 +88,31 @@
     cursor: pointer;
 }
 
-.submit:hover {
+.productcontainer .submit:hover {
     background-color: #218838;
 }
 
+@media (max-width: 768px) {
+    .productcontainer {
+        padding: 10px;
+    }
+
+    .productcontainer .product h3 {
+        font-size: 1.4rem;
+    }
+
+    .productcontainer .form {
+        padding: 16px;
+    }
+
+    .productcontainer .form-align {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .productcontainer .form-align label,
+    .productcontainer .title {
+        width: 100%;
+    }
+}

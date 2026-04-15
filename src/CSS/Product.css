@@ -104,4 +104,19 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .product-page {
+    overflow-y: visible;
+    max-height: none;
+  }
+
+  .product-cards {
+    width: 100%;
+  }
+
+  .product-card {
+    width: 100%;
+  }
+}
+
 

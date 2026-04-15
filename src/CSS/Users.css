@@ -85,3 +85,18 @@
     width: max-content;
   }
 }
+
+@media (max-width: 1024px) {
+  .user {
+    overflow-y: visible;
+    max-height: none;
+  }
+
+  .user-cards {
+    width: 100%;
+  }
+
+  .user-card {
+    width: 100%;
+  }
+}

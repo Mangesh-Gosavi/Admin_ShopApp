@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './CSS/Home.css';
 import Loader from '../src/Loader';
 import Navigation from './Navigation';
+import Header from './Header';
 import { Outlet } from 'react-router-dom';
 
 function Home() {
@@ -18,12 +19,15 @@ function Home() {
       {loading ? (
         <Loader />
       ) : (
-        <div className="home-container">
-          <div className="left">
-            <Navigation />
-          </div>
-          <div className="right">
-            <Outlet />
+        <div className="home-page">
+          <Header />
+          <div className="home-container">
+            <div className="left">
+              <Navigation />
+            </div>
+            <div className="right">
+              <Outlet />
+            </div>
           </div>
         </div>
       )}

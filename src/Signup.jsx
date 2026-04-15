@@ -106,30 +106,30 @@ function Signup() {
               <input className="signup-uinput" name="uemail" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
             </div>
 
-            <div className='password-content'>
+            <div className='signup-password-content'>
               <KeyRound className="signup-icon" />
               <input
-                className="uinput"
+                className="signup-password-input"
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              <span className="toggle-password" onClick={() => setShowPassword(!showPassword)}>
+              <span className="signup-toggle-password" onClick={() => setShowPassword(!showPassword)}>
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </span>
             </div>
 
-            <div className='password-content'>
+            <div className='signup-password-content'>
               <KeyRound className="signup-icon" />
               <input
-                className="uinput"
+                className="signup-password-input"
                 type={showPassword ? "text" : "password"}
                 placeholder="Re-enter Password"
                 onChange={(e) => setRepassword(e.target.value)}
                 required
               />
-              <span className="toggle-password" onClick={() => setShowPassword(!showPassword)}>
+              <span className="signup-toggle-password" onClick={() => setShowPassword(!showPassword)}>
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </span>
             </div>

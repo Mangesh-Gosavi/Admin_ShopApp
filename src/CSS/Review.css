@@ -127,3 +127,18 @@
         box-sizing: border-box;
     }
 }
+
+@media (max-width: 1024px) {
+    .review-page {
+        overflow-y: visible;
+        max-height: none;
+    }
+
+    .review-cards {
+        width: 100%;
+    }
+
+    .review-card {
+        width: 100%;
+    }
+}

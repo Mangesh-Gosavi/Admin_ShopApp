@@ -1,32 +1,41 @@
-.product {
+.stock-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.stock-product {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
   width: 100%;
-  max-width: 500px;
+  max-width: 560px;
   margin: 0 auto;
 }
 
-.product h3 {
+.stock-product h3 {
   font-size: 24px;
   color: #0066cc;
   margin-bottom: 20px;
   text-align: center;
 }
 
-.form {
+.stock-form {
   width: 100%;
   background-color: white;
   border: 1px solid #ccc;
   border-radius: 8px;
-  padding: 20px;
+  padding: 24px;
   box-sizing: border-box;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.data {
+.stock-data {
   display: flex;
   flex-direction: column;
   font-weight: 600;
@@ -34,7 +43,7 @@
   font-size: 14px;
 }
 
-.input {
+.stock-input {
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
@@ -42,7 +51,7 @@
   margin-top: 6px;
 }
 
-.submit {
+.stock-submit {
   padding: 10px 16px;
   background-color: #1541d1;
   color: white;
@@ -54,48 +63,54 @@
   margin-top: 10px;
 }
 
-.submit:hover {
+.stock-submit:hover {
   background-color: #0f358b;
+}
+
+@media (max-width: 768px) {
+  .stock-container {
+    padding: 10px;
+  }
+
+  .stock-form {
+    padding: 16px;
+  }
 }
 
 /* Responsive text and layout below 500px */
 @media (max-width: 500px) {
-  .product h3 {
+  .stock-product h3 {
     font-size: 20px;
   }
 
-  .product{
-    justify-content: none;
-  }
-
-  .input {
+  .stock-input {
     font-size: 13px;
   }
 
-  .submit {
+  .stock-submit {
     font-size: 13px;
   }
 }
 
 /* Extra support for ultra-small screens (<350px) */
 @media (max-width: 350px) {
-  .product {
+  .stock-product {
     padding: 10px;
   }
 
-  .form {
+  .stock-form {
     padding: 15px;
   }
 
-  .data {
+  .stock-data {
     font-size: 13px;
   }
 
-  .input {
+  .stock-input {
     font-size: 12px;
   }
 
-  .submit {
+  .stock-submit {
     font-size: 12px;
   }
 }

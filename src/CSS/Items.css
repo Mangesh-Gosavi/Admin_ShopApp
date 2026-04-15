@@ -109,3 +109,18 @@
     font-size: 0.5rem;
   }
 }
+
+@media (max-width: 1024px) {
+  .item-page {
+    overflow-y: visible;
+    max-height: none;
+  }
+
+  .item-cards {
+    width: 100%;
+  }
+
+  .item-card {
+    width: 100%;
+  }
+}

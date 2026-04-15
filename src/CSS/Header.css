@@ -2,22 +2,26 @@
   width: 100%;
   background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
 }
 
 /* NAV styles */
 .nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: start;
   align-items: center;
-  padding: 0.5rem 1.5rem;
+  min-height: 58px;
+  padding: 0.5rem 1rem;
   font-size: 14px;
   background-color: white;
   color: #1f285e;
   font-family: 'Times New Roman', Times, serif;
-  position: sticky; /* Use sticky instead of fixed for smoother layout */
-  top: 0;
-  z-index: 1000;
   width: 100%;
+  box-sizing: border-box;
+}
+
+.nav h1 {
+  margin: 0;
 }
 
 /* Responsive */
