@@ -28,16 +28,20 @@ function Product() {
 
             const data = await response.json();
             console.log(data);
-            setProductdata(data);
+            const list = Array.isArray(data) ? data : (data?.products || data?.data || []);
+            setProductdata(list);
         } catch (error) {
             console.error(error);
         }
     }
-    init();
 
-    setTimeout(() => {
-        setLoading(false);
-    }, 2000);
+    useEffect(() => {
+        init();
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 2000);
+        return () => clearTimeout(timer);
+    }, []);
 
     const deleteproduct = async (id) => {
         const data = { "id": id };
@@ -63,7 +67,6 @@ function Product() {
             await init();
             setShowPopup(true);
             setPopupMessage("Product deleted from Database");
-            setProductdata(productdata);
         } catch (error) {
             console.error("Error:", error);
         }
@@ -79,20 +82,32 @@ function Product() {
 
                 <div className="product-page" >
                     <h3 >All Products</h3>
+                    {productdata.length === 0 && (
+                        <p style={{ color: '#6b7184', marginTop: '40px' }}>No products to display.</p>
+                    )}
                     <div className="product-cards">
                         {productdata.map((item) => {
                             return (
-                                <div className="product-card" key={item.id}>
-                                    <div className="product-card-content">
-                                        <h4><strong>ID:</strong> {item._id}</h4>
-                                        <p><strong>Brand:</strong> {item.brand}</p>
-                                        <p><strong>Product:</strong> {item.product}</p>
-                                        <p><strong>Price:</strong> ₹{item.price}</p>
-                                        <p><strong>Size:</strong> {item.size}</p>
-                                        <p><strong>Stock:</strong> {item.stocks}</p>
-                                        <p><strong>Discount:</strong> {item.discount}%</p>
+                                <div className="product-card" key={item.productid}>
+                                    <div className="product-card-image">
+                                        <img src={item.image} alt={item.product} loading="lazy" />
+                                        {item.discount > 0 && (
+                                            <span className="product-card-badge">{item.discount}% OFF</span>
+                                        )}
                                     </div>
-                                    <button className="button" type="button" onClick={() => deleteproduct(item._id)}>Delete</button>
+                                    <div className="product-card-content">
+                                        <span className="product-card-id">#{item.productid}</span>
+                                        <p className="product-card-brand">{item.brand}</p>
+                                        <h4 className="product-card-title">{item.description}</h4>
+                                        <div className="product-card-price-row">
+                                            <span className="product-card-price">₹{item.price}</span>
+                                        </div>
+                                        <div className="product-card-meta">
+                                            <span><strong>Size:</strong> {item.size}</span>
+                                            <span><strong>Stock:</strong> {item.stock}</span>
+                                        </div>
+                                    </div>
+                                    <button className="button" type="button" onClick={() => deleteproduct(item.productid)}>Delete</button>
                                 </div>
                             );
                         })}

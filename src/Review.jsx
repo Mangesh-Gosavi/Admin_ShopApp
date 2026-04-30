@@ -94,29 +94,29 @@ function Review() {
               <h2>No Comments Posted</h2>
             ) : (
               reviews.map((review) => (
-                <div className="review-card" key={review._id}>
+                <div className="review-card" key={review.id}>
                   <div className="review-card-content">
-                    <h4><strong>ID:</strong> {review._id}</h4>
-                    <p><strong>Email:</strong> {review.useremail}</p>
+                    <h4><strong>ID:</strong> {review.id}</h4>
+                    <p><strong>Email:</strong> {review.email}</p>
                     <p><strong>ProductID:</strong> {review.productid}</p>
                     <p><strong>Review:</strong> {
                       review.label === 1
-                        ? commentVisible.includes(review._id)
-                          ? review.text
+                        ? commentVisible.includes(review.id)
+                          ? review.review
                           : "This comment is inappropriate"
-                        : review.text
+                        : review.review
                     }</p>
                   </div>
                   <div className="icon-group">
                     {review.label === 1 && (
                       <img
                         className="icon"
-                        src={commentVisible.includes(review._id) ? Crosseye : Eye}
+                        src={commentVisible.includes(review.id) ? Crosseye : Eye}
                         onClick={() =>
                           setCommentVisible((prev) =>
-                            commentVisible.includes(review._id)
-                              ? prev.filter((id) => id !== review._id)
-                              : [...prev, review._id]
+                            commentVisible.includes(review.id)
+                              ? prev.filter((id) => id !== review.id)
+                              : [...prev, review.id]
                           )
                         }
                         alt="toggle"
@@ -125,7 +125,7 @@ function Review() {
                     <img
                       className="icon"
                       src={trash}
-                      onClick={() => deletecomment(review._id)}
+                      onClick={() => deletecomment(review.id)}
                       alt="delete"
                     />
                   </div>

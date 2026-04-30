@@ -27,12 +27,24 @@ function Addprod() {
     const file = e.target.files[0];
     if (!file) return;
 
-    const formData = new FormData();
-    formData.append('image', file);
-
     setUploading(true);
     try {
       const token = localStorage.getItem('token');
+
+      if (image) {
+        await fetch(`${API_BASE_URL}/deleteimage`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ url: image }),
+        });
+      }
+
+      const formData = new FormData();
+      formData.append('image', file);
+
       const response = await fetch(`${API_BASE_URL}/upload`, {
         method: 'POST',
         headers: { Authorization: `Bearer ${token}` },
@@ -53,6 +65,7 @@ function Addprod() {
       setShowPopup(true);
     } finally {
       setUploading(false);
+      e.target.value = '';
     }
   };
 
@@ -94,6 +107,18 @@ function Addprod() {
       setShowPopup(true);
       setPopupMessage("Product Added to Database")
 
+      setBrand('');
+      setProduct('');
+      setBought('');
+      setPrice('');
+      setDiscount('0');
+      setstock('');
+      setsize('');
+      setDiscription('');
+      setImage('');
+      setImageUploaded(false);
+      e.target.reset();
+
     } catch (error) {
       console.error("Error:", error);
     }
@@ -115,6 +140,21 @@ function Addprod() {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' , width: '95%' }}>
                     <input className='input' type='text' value={image} readOnly />
                     <button type='button' onClick={() => setShowImagePreview(true)} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: '20px' }} title='Preview image'>👁</button>
+                    <input
+                      id='reuploadInput'
+                      type='file'
+                      accept='image/png, image/jpeg'
+                      style={{ display: 'none' }}
+                      disabled={uploading}
+                      onChange={handleImageUpload}
+                    />
+                    <label
+                      htmlFor='reuploadInput'
+                      style={{ cursor: uploading ? 'not-allowed' : 'pointer', fontSize: '20px' }}
+                      title='Reupload image'
+                    >
+                      {uploading ? '⏳' : '🔄'}
+                    </label>
                   </div>
                 ) : (
                   <>
@@ -148,9 +188,9 @@ function Addprod() {
               <div>{showPopup && <Popup message={popupMessage} onClose={() => setShowPopup(false)} />}</div>
               {showImagePreview && (
                 <div onClick={() => setShowImagePreview(false)} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000 }}>
-                  <div onClick={(e) => e.stopPropagation()} style={{ background: '#fff', borderRadius: '8px', padding: '16px', width: '50vw', height: '50vh', position: 'relative' }}>
+                  <div onClick={(e) => e.stopPropagation()} style={{ background: '#fff', borderRadius: '8px', padding: '16px', width: '42vw', height: '70vh', position: 'relative' }}>
                     <button onClick={() => setShowImagePreview(false)} style={{ position: 'absolute', top: '8px', right: '8px', background: 'none', border: 'none', fontSize: '20px', cursor: 'pointer' }}>✕</button>
-                    <img src={image} alt='Uploaded preview' style={{ width: '48vw', height: '48vh', borderRadius: '4px' }} />
+                    <img src={image} alt='Uploaded preview' style={{ width: '41vw', height: '70vh', borderRadius: '4px' }} />
                   </div>
                 </div>
               )}

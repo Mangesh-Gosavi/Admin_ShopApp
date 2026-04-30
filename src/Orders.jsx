@@ -56,6 +56,7 @@ function Orders() {
             if (response.ok) {
                 setShowPopup(true);
                 setPopupMessage("Marked as Delivered");
+                setId('')
                 await init(); // reload data
             } else {
                 const errorData = await response.json();
